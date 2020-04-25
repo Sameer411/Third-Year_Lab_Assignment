@@ -1,0 +1,14 @@
+MOVE #3,#1
+ADD #3,='1'
+MOVER #3,#2
+M2 69,169
+ADD #3,='5'
+MEND
+MOVER #3,#1
+MOVER #4,#2
+M3 73,173
+ADD #3,='15'
+ADD #4,='10'
+MEND
+ADD #1,#2
+MEND

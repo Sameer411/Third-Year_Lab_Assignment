@@ -1,0 +1,19 @@
+MACRO M1 &x,&y,&a=AREG,&b=
+MOVE &a,&x
+ADD &a,='1'
+MOVER &a,&y
+M2 69,169
+ADD &a,='5'
+MEND
+MACRO M2 &p,&q,&u=CREG,&v=DREG
+MOVER &u,&p
+MOVER &v,&q
+M3 73,173
+ADD &u,='15'
+ADD &v,='10'
+MEND
+MACRO M3 &a,&b
+ADD &a,&b
+MEND
+M1 10,20,&b=CREG
+M2 100,200,&u=AREG,&v=BREG

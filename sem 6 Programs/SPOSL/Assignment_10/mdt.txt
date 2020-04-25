@@ -1,0 +1,10 @@
+MOVE #3,#1
+ADD #3,='1'
+MOVER #3,#2
+ADD #3,='5'
+MEND
+MOVER #3,#1
+MOVER #4,#2
+ADD #3,='15'
+ADD #4,='10'
+MEND
