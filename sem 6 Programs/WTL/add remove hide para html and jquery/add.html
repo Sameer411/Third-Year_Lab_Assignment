@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-3.3.1.js" ></script>
+<script>
+$(document).ready(function(){
+	$("#button").click(function(){
+	$("ol").append("<li>New item</li>");
+	});
+});
+
+</script>
+</head>
+<body>
+	<ol>
+		<li>item #1 </li>
+		<li>item #2 </li>
+		<li>item #3 </li>
+	</ol>
+<button id = "button">Add List Element</button>
+</body>
+</html>

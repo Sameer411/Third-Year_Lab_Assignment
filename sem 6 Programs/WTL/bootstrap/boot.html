@@ -1,0 +1,138 @@
+<!--Design, Develop and Deploy web application using Bootstrap(eg Fixed navigation bar at top with search utility).-->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WTL Mock</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+  
+
+
+  <!---<script>
+	$(document).ready(function(){
+  	$("#myInput").on("keyup", function() {
+   	var value = $(this).val().toLowerCase();
+    	$("#mydiv *").filter(function() {
+      	$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    		});
+  	    });
+	});--->
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="boot.html">WTL Mock Practical</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="boot.html">Home</a></li>
+      <li><a href="boot1.html">WT</a></li>
+      <li><a href="#">SPOS</a></li>
+      <li><a href="#">ESIOT</a></li>
+    </ul>
+	<form class="navbar-form navbar-left" role="search">
+            <div id="wrapper">
+              <input type="text" id="search_text">
+              <input type="button" value="search" id="search"placeholder="Search ">
+                               
+                           
+                        </div>
+                    
+
+                </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+ var searchpara=document.getElementById("search_para").innerHTML;
+ searchpara=searchpara.toString();
+ document.getElementById("search").onclick =function ()
+ {highlight_word(searchpara)};  
+},false);
+
+function highlight_word(searchpara)
+{
+ var text=document.getElementById("search_text").value;
+ if(text)
+ {
+  var pattern=new RegExp("("+text+")","gi");
+  var new_text=searchpara.replace(pattern, "<span class='highlight'>"+text+"</span>");
+  document.getElementById("search_para").innerHTML=new_text;
+ }
+}
+</script>
+
+<style>
+#search_para
+{
+ color:grey;
+}
+.highlight
+{
+ color:blue;
+ background-color: yellow;
+}
+</style>
+<body>
+<div id="wrapper">
+<!--<input type="text" id="search_text">
+<input type="button" value="search" id="search">-->
+<div>
+<div class="container">
+  <h3>Inverted Navbar</h3>
+  <p id="search_para"> Navbars come with built-in support for a handful of sub-components. Choose from the following as needed:
+
+.navbar-brand for your company, product, or project name.
+.navbar-nav for a full-height and lightweight navigation (including support for dropdowns).
+.navbar-toggler for use with our collapse plugin and other navigation toggling behaviors.
+.form-inline for any form controls and actions.
+.navbar-text for adding vertically centered strings of text.
+.collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
+Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically collapses at the lg (large) breakpoint.
+The .navbar-brand can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+</br>
+3.Collapsing The Navigation Bar
+The navigation bar often takes up too much space on a small screen.
+We should hide the navigation bar; and only show it when it is needed.
+In the following example the navigation bar is replaced by a button in the top right corner. Only when
+ the button is clicked, the navigation bar will be displayed:
+</br>
+4.ou can also use the .input-group and .input-group-addon classes to attach an icon or help tex
+t next to the input field. You will learn more about these classes in the Bootstrap Inputs chapter.
+</br>
+5.To add form elements inside the navbar, add the .navbar-form class to a form element and add an input(s). Note that we have added a .form-group class to 
+the div container holding the input. This adds proper padding if you have more than one inputs (you will learn more about this in the Forms chapter).</br>
+6.Theming the navbar has never been easier thanks to the combination of theming classes and background-color utilities. 
+Choose from .navbar-light for use with light background colors, or .navbar-dark for dark background colors.
+ Then, customize with .bg-* utilities.
+ </br>
+ 7.The .container class is the fixed width container. That does not mean it is not responsive. It is responsive; however, it is fixed based on screen size
+  </br>
+  8.will take the full width of the viewport. If you use the container-fluid and resize the browser, you may notice the content inside it will adjust with every pixel to take the full available width.
+
+To make it clearer, have a look at a demo below.
+</p>
+</div>
+</div>
+
+
+
+
+</script>
+
+
+
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+</body>
+</html>

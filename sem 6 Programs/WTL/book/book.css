@@ -1,0 +1,3 @@
+tr:nth-child(even){background-color:#ccccff;}
+tr:nth-child(odd){background-color:#b3ffb3;}
+h2{color:black}

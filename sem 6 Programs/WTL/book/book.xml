@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="book.xsl"?>
+<BOOKS>
+	<BOOK>
+		<TITLE>Web Technology</TITLE>
+		<AUTHOR>Achyut Godbole</AUTHOR>
+		<PUBLICATION>abc</PUBLICATION>
+		<YEAR>2001</YEAR>
+		<PRICE>200</PRICE>
+	</BOOK>
+	<BOOK>
+		<TITLE>System Programming</TITLE>
+		<AUTHOR>Galvin</AUTHOR>
+		<PUBLICATION>Mc Graw</PUBLICATION>
+		<YEAR>1999</YEAR>
+		<PRICE>500</PRICE>
+	</BOOK>
+	<BOOK>
+		<TITLE>Data Structures</TITLE>
+		<AUTHOR>V.H.Patil</AUTHOR>
+		<PUBLICATION>xyz</PUBLICATION>
+		<YEAR>2000</YEAR>
+		<PRICE>300</PRICE>
+	</BOOK>
+	<BOOK>
+		<TITLE>Digital Electronics</TITLE>
+		<AUTHOR>qwerty</AUTHOR>
+		<PUBLICATION>sample</PUBLICATION>
+		<YEAR>1995</YEAR>
+		<PRICE>250</PRICE>
+	</BOOK>
+	<BOOK>
+		<TITLE>Database Management</TITLE>
+		<AUTHOR>Korth</AUTHOR>
+		<PUBLICATION>asdfg</PUBLICATION>
+		<YEAR>2002</YEAR>
+		<PRICE>560</PRICE>
+	</BOOK>
+	<BOOK>
+		<TITLE>Theory of Computation</TITLE>
+		<AUTHOR>V.Kulkarni</AUTHOR>
+		<PUBLICATION>pqrst</PUBLICATION>
+		<YEAR>2001</YEAR>
+		<PRICE>150</PRICE>
+	</BOOK>
+	<BOOK>
+		<TITLE>Let Us C</TITLE>
+		<AUTHOR>Y.Kanetkar</AUTHOR>
+		<PUBLICATION>klmno</PUBLICATION>
+		<YEAR>2003</YEAR>
+		<PRICE>210</PRICE>
+	</BOOK>
+	<BOOK>
+		<TITLE>CPP</TITLE>
+		<AUTHOR>Balagurusamy</AUTHOR>
+		<PUBLICATION>werty</PUBLICATION>
+		<YEAR>1995</YEAR>
+		<PRICE>320</PRICE>
+	</BOOK>
+	<BOOK>
+		<TITLE>SMD</TITLE>
+		<AUTHOR>Jim Arlow</AUTHOR>
+		<PUBLICATION>zyxwvu</PUBLICATION>
+		<YEAR>2000</YEAR>
+		<PRICE>450</PRICE>
+	</BOOK>
+	<BOOK>
+		<TITLE>Information Systems</TITLE>
+		<AUTHOR>Rahul De</AUTHOR>
+		<PUBLICATION>stuvw</PUBLICATION>
+		<YEAR>1999</YEAR>
+		<PRICE>230</PRICE>
+	</BOOK>	
+</BOOKS>
