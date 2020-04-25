@@ -1,0 +1,187 @@
+NAME     : DHARA HARISH KOTAK
+CLASS    : TE(A)
+ROLL NO. : 38
+SUBJECT  : Database Management System Lab.
+
+  	Assignment no:6
+-----------------------------------------------------------------------------------------------
+Create a database with following schemas in mysql
+        Student(Roll,Name,Deptid)
+        Dept     (Deptid,Dname)
+
+
+ 
+Write a program in Java/PHP  to connect with a database using Jdbc-Odbc Connectivity to display the student’s name of computer Engineering Department.
+
+Software Required: MySQL, Java /PHP ,Ubuntu-------------------------------------------------------------------------------------------------
+#DATABASE
+
+------------------------------------------------------------------------------------------------
+mysql> create database asgt6;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use asgt6;
+Database changed
+
+mysql> create table Student(
+    -> Roll_no int,
+    -> Name varchar(20),
+    -> Dept_id int);
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> create table Department(
+    -> Dept_id int,
+    -> Dept_name varchar(30));
+Query OK, 0 rows affected (0.35 sec)
+
+
+mysql> show tables;
++-----------------+
+| Tables_in_asgt6 |
++-----------------+
+| Department      |
+| Student         |
++-----------------+                                                    chsitinia chubak movie actress 
+2 rows in set (0.00 sec)
+
+mysql> insert Student values(101,"Rashmi",500);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert Student values(102,"Jay",600);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert Student values(103,"Rashi",600);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert Student values(104,"Rohan",500);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert Student values(105,"Manish",700);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert Student values(106,"Ananya",500);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert Student values(107,"Rutuja",500);
+Query, OK,  row affected (0.0001sec) 
+
+mysql> insert Department values(500,"Computer");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert Department values(600,"Mechanical");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert Department values(700,"Electronics");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select *from Student;
++---------+--------+---------+
+| Roll_no | Name   | Dept_id |
++---------+--------+---------+
+|     101 | Rashmi |     500 |
+|     102 | Jay    |     600 |
+|     103 | Rashi  |     600 |
+|     104 | Rohan  |     500 |
+|     105 | Manish |     700 |
+|     106 | Ananya |     500 |
+|     107 | Rutuja |     500 |
++---------+--------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select *from Department;
++---------+-------------+
+| Dept_id | Dept_name   |
++---------+-------------+
+|     500 | Computer    |
+|     600 | Mechanical  |
+|     700 | Electronics |
++---------+-------------+
+3 rows in set (0.00 sec)
+
+
+mysql> select *from Student natural join Department where Student.Dept_id=Department.Dept_id;
++---------+---------+--------+-------------+
+| Dept_id | Roll_no | Name   | Dept_name   |
++---------+---------+--------+-------------+
+|     500 |     101 | Rashmi | Computer    |
+|     600 |     102 | Jay    | Mechanical  |
+|     600 |     103 | Rashi  | Mechanical  |
+|     500 |     104 | Rohan  | Computer    |
+|     700 |     105 | Manish | Electronics |
+|     500 |     106 | Ananya | Computer    |
+|     500 |     107 | Rutuja | Computer    |
++---------+---------+--------+-------------+
+7 rows in set (0.04 sec)
+
+mysql> select *from Student natural join Department where Student.Dept_id=Department.Dept_id and Dept_name="Computer";
++---------+---------+--------+-----------+
+| Dept_id | Roll_no | Name   | Dept_name |
++---------+---------+--------+-----------+
+|     500 |     101 | Rashmi | Computer  |
+|     500 |     104 | Rohan  | Computer  |
+|     500 |     106 | Ananya | Computer  |
+|     500 |     107 | Rutuja | Computer  |
++---------+---------+--------+-----------+
+4 rows in set (0.00 sec)
+
+
+
+mysql> notee;
+
+----------------------------------------------------------------------------------------------
+#JAVA PROGRAM TO CONNECT */
+
+
+----------------------------------------------------------------------------------------------
+
+//export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
+// javac JDBC.java
+// java JDBC
+
+
+import java.sql.*;
+import java.sql.DriverManager;
+import java.io.*;
+import java.util.*;
+
+class JDBC
+{
+
+	public static void main(String args[])
+	{
+		try{
+		
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/asgt6?useSSL=false","root","manager");
+		
+			System.out.println("Successfull !!");
+			Statement stmt=con.createStatement();
+			ResultSet rs= stmt.executeQuery(" select *from Student natural join Department where Student.Dept_id=Department.Dept_id and Dept_name='Computer'");
+			while(rs.next())
+			System.out.println( rs.getInt(1)+"   " +rs.getInt(2)+"   " +rs.getString(3)+"   "+rs.getString(4));
+			con.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	
+	}
+}
+
+
+
+/*OUTPUT:
+
+unix@unix-HP-dx2480-MT-KL969AV:~/Desktop$ javac JDBC.java
+unix@unix-HP-dx2480-MT-KL969AV:~/Desktop$ java JDBC
+Successfull !!
+500   101   Rashmi   Computer
+500   104   Rohan    Computer
+500   106   Ananya   Computer
+500   107   Rutuja   Computer
+
+*/
+	
+
+
+

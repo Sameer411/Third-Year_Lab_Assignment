@@ -1,0 +1,8 @@
+install.packages("party")
+library(party)
+input_data<-read.csv(file.choose())
+head(input_data)
+png(file="decision_tree.png")
+output_tree<-ctree(variety~sepal.length+sepal.width+petal.length+petal.width,data=input_data)
+plot(output_tree)
+dev.off()

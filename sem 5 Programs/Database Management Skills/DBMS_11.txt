@@ -1,0 +1,1004 @@
+NAME     : DHARA HARISH KOTAK
+CLASS    : TE(A)
+ROLL NO. : 38
+SUBJECT  : Database Management System Lab.
+
+	Assignment no:11
+-----------------------------------------------------------------------------------------------
+
+Implement Implement the following MongoDb Query
+
+1. Create a collection named books.
+2. Insert 5 records with field TITLE,DESCRIPTION,BY,URL,TAGS AND LIKES
+3. Insert 1 more document in collection with additional field of user name and comments
+4. Display all the documents whose title is 'mongodb'.
+5. Display all the documents written by 'john' or whose title is 'mongodb'.
+
+6. Display all the documents whose title is 'mongodb' and written by 'john'.
+
+7. Display all the documents whose like is greater than 10.
+
+8. Display all the documents whose like is greater than 100 and whose title is either 'mongodb' or written by 'john'.
+
+9. Update the title of 'mongodb' document to 'mongodb overview'
+
+10. Delete the document titled 'nosql overview'.
+
+11. Display exactly two documents written by 'john'.
+
+12. Display the second document published by 'john'.
+
+13. Display all the books in the sorted fashion.
+
+14. Insert a document using save method.
+
+Software Required: MongoDB, Ubuntu
+
+===============================================================================================
+
+unix@unix-HP-dx2480-MT-KL969AV:~$ mongo
+MongoDB shell version v4.0.2
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 4.0.2
+...........................................
+
+> show dbs
+admin        0.000GB
+ass7         0.000GB
+assg9        0.000GB
+assgn9       0.000GB
+collection   0.000GB
+config       0.000GB
+db           0.000GB
+local        0.000GB
+sample       0.000GB
+sampleTEA35  0.000GB
+teb12        0.000GB
+teb8         0.000GB
+test         0.000GB
+v1           0.000GB
+> use tebass
+switched to db tebass
+> db.createCollection("books")
+{ 
+> db.createCollection("books")
+{
+	"ok" : 0,
+	"errmsg" : "a collection 'tebass.books' already exists",
+	"code" : 48,
+	"codeName" : "NamespaceExists"
+}
+------------------------------------------------------------------------------------------------
+
+1. Create a collection named books.
+------------------------------------------------------------------------------------------------
+> db.createCollection("book")
+{ "ok" : 1 }
+
+-----------------------------------------------------------------------------------------------
+
+2. Insert 5 records with field TITLE,DESC
+-----------------------------------------------------------------------------------------------
+
+> db.book.insert({Title:"mongodb",Description:"educational",By:"John",URL:"198-00",Tag:"computer",Likes:100})
+WriteResult({ "nInserted" : 1 })
+> db.book.insert({Title:"mongodb",Description:"educational",By:"Korth",URL:"198-98",Tag:"computer",Likes:900})
+WriteResult({ "nInserted" : 1 })
+> db.book.insert({Title:"mongodb",Description:"educational",By:"Silber",URL:"198-98",Tag:"computer",Likes:70})
+WriteResult({ "nInserted" : 1 })
+> db.book.insert({Title:"java",Description:"educational",By:"Herbert",URL:"195-98",Tag:"computer",Likes:100})
+WriteResult({ "nInserted" : 1 })
+> db.book.insert({Title:"c++",Description:"educational",By:"Varsha",URL:"175-98",Tag:"computer",Likes:19})
+WriteResult({ "nInserted" : 1 })
+> db.book.insert({Title:"c",Description:"educational",By:"Sudha",URL:"125-98",Tag:"computer",Likes:9})
+WriteResult({ "nInserted" : 1 })
+> db.book.insert({Title:"nosql review",Description:"educational",By:"Nair",URL:"155-98",Tag:"computer",Likes:10})
+WriteResult({ "nInserted" : 1 })
+> db.book.insert({Title:"dbms",Description:"educational",By:"sudarshan",URL:"155-98",Tag:"computer",Likes:7})
+WriteResult({ "nInserted" : 1 })
+> db.book.insert({Title:"CN",Description:"educational",By:"Forouzan",URL:"156-98",Tag:"computer",Likes27})
+2018-09-08T11:16:19.892+0530 E QUERY    [js] ReferenceError: Likes27 is not defined :
+@(shell):1:96
+> db.book.insert({Title:"CN",Description:"educational",By:"Forouzan",URL:"156-98",Tag:"computer",Likes:27})
+WriteResult({ "nInserted" : 1 })
+
+> db.book.find().pretty()
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+{
+	"_id" : ObjectId("5b936123bfb45c334a0c5486"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "Silber",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 70
+}
+{
+	"_id" : ObjectId("5b936162bfb45c334a0c5487"),
+	"Title" : "java",
+	"Description" : "educational",
+	"By" : "Herbert",
+	"URL" : "195-98",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b936181bfb45c334a0c5488"),
+	"Title" : "c++",
+	"Description" : "educational",
+	"By" : "Varsha",
+	"URL" : "175-98",
+	"Tag" : "computer",
+	"Likes" : 19
+}
+{
+	"_id" : ObjectId("5b9361cbbfb45c334a0c5489"),
+	"Title" : "c",
+	"Description" : "educational",
+	"By" : "Sudha",
+	"URL" : "125-98",
+	"Tag" : "computer",
+	"Likes" : 9
+}
+{
+	"_id" : ObjectId("5b9361f6bfb45c334a0c548a"),
+	"Title" : "nosql review",
+	"Description" : "educational",
+	"By" : "Nair",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 10
+}
+{
+	"_id" : ObjectId("5b936210bfb45c334a0c548b"),
+	"Title" : "dbms",
+	"Description" : "educational",
+	"By" : "sudarshan",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 7
+}
+{
+	"_id" : ObjectId("5b936235bfb45c334a0c548c"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Forouzan",
+	"URL" : "156-98",
+	"Tag" : "computer",
+	"Likes" : 27
+}
+
+----------------------------------------------------------------------------------------------
+
+ 3. Insert 1 more document in collection with additional field of user name and comments
+----------------------------------------------------------------------------------------------
+
+> db.book.insert({Title:"CN",Description:"educational",By:"Tb",URL:"136-98",Tag:"computer",Likes:27
+,User_Name:"Reena",Comments:"Excellent"})
+WriteResult({ "nInserted" : 1 })
+> db.book.find().pretty()
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+{
+	"_id" : ObjectId("5b936123bfb45c334a0c5486"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "Silber",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 70
+}
+{
+	"_id" : ObjectId("5b936162bfb45c334a0c5487"),
+	"Title" : "java",
+	"Description" : "educational",
+	"By" : "Herbert",
+	"URL" : "195-98",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b936181bfb45c334a0c5488"),
+	"Title" : "c++",
+	"Description" : "educational",
+	"By" : "Varsha",
+	"URL" : "175-98",
+	"Tag" : "computer",
+	"Likes" : 19
+}
+{
+	"_id" : ObjectId("5b9361cbbfb45c334a0c5489"),
+	"Title" : "c",
+	"Description" : "educational",
+	"By" : "Sudha",
+	"URL" : "125-98",
+	"Tag" : "computer",
+	"Likes" : 9
+}
+{
+	"_id" : ObjectId("5b9361f6bfb45c334a0c548a"),
+	"Title" : "nosql review",
+	"Description" : "educational",
+	"By" : "Nair",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 10
+}
+{
+	"_id" : ObjectId("5b936210bfb45c334a0c548b"),
+	"Title" : "dbms",
+	"Description" : "educational",
+	"By" : "sudarshan",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 7
+}
+{
+	"_id" : ObjectId("5b936235bfb45c334a0c548c"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Forouzan",
+	"URL" : "156-98",
+	"Tag" : "computer",
+	"Likes" : 27
+}
+{
+	"_id" : ObjectId("5b9362d5bfb45c334a0c548d"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Tb",
+	"URL" : "136-98",
+	"Tag" : "computer",
+	"Likes" : 27,
+	"User_Name" : "Reena",
+	"Comments" : "Excellent"
+}
+------------------------------------------------------------------------------------------------
+
+4. Display all the documents whose title is 'mongodb'.
+-----------------------------------------------------------------------------------------------
+> db.book.find({Title:"mongodb"}).pretty()
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+{
+	"_id" : ObjectId("5b936123bfb45c334a0c5486"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "Silber",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 70
+}
+------------------------------------------------------------------------------------------------
+6. Display all the documents whose title is 'mongodb' AND written by 'john'.
+
+------------------------------------------------------------------------------------------------
+> db.book.find({Title:"mongodb",By:"John"}).pretty()
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+------------------------------------------------------------------------------------------------
+7. Display all the documents whose like is greater than 10.
+
+------------------------------------------------------------------------------------------------
+> db.book.find({Likes:{$gte:10}}).pretty()
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+{
+	"_id" : ObjectId("5b936123bfb45c334a0c5486"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "Silber",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 70
+}
+{
+	"_id" : ObjectId("5b936162bfb45c334a0c5487"),
+	"Title" : "java",
+	"Description" : "educational",
+	"By" : "Herbert",
+	"URL" : "195-98",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b936181bfb45c334a0c5488"),
+	"Title" : "c++",
+	"Description" : "educational",
+	"By" : "Varsha",
+	"URL" : "175-98",
+	"Tag" : "computer",
+	"Likes" : 19
+}
+{
+	"_id" : ObjectId("5b9361f6bfb45c334a0c548a"),
+	"Title" : "nosql review",
+	"Description" : "educational",
+	"By" : "Nair",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 10
+}
+{
+	"_id" : ObjectId("5b936235bfb45c334a0c548c"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Forouzan",
+	"URL" : "156-98",
+	"Tag" : "computer",
+	"Likes" : 27
+}
+{
+	"_id" : ObjectId("5b9362d5bfb45c334a0c548d"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Tb",
+	"URL" : "136-98",
+	"Tag" : "computer",
+	"Likes" : 27,
+	"User_Name" : "Reena",
+	"Comments" : "Excellent"
+}
+------------------------------------------------------------------------------------------------
+8. Display all the documents whose like is greater than 100 and whose title is either 'mongodb' or written by 'john'.
+
+------------------------------------------------------------------------------------------------
+> db.book.find({Likes:{$gte:100},$or:[{Title:"mongodb"},{By:"John"}]}).pretty()
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+-----------------------------------------------------------------------------------------------
+9. Update the title of 'mongodb' document to 'mongodb overview'
+
+-----------------------------------------------------------------------------------------------
+
+> db.book.update({Title:"mongodb"},{$set:{Title:"mongodb overview"}},{multi:true})
+WriteResult({ "nMatched" : 3, "nUpserted" : 0, "nModified" : 3 })
+> db.book.find().pretty()
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+{
+	"_id" : ObjectId("5b936123bfb45c334a0c5486"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Silber",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 70
+}
+{
+	"_id" : ObjectId("5b936162bfb45c334a0c5487"),
+	"Title" : "java",
+	"Description" : "educational",
+	"By" : "Herbert",
+	"URL" : "195-98",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b936181bfb45c334a0c5488"),
+	"Title" : "c++",
+	"Description" : "educational",
+	"By" : "Varsha",
+	"URL" : "175-98",
+	"Tag" : "computer",
+	"Likes" : 19
+}
+{
+	"_id" : ObjectId("5b9361cbbfb45c334a0c5489"),
+	"Title" : "c",
+	"Description" : "educational",
+	"By" : "Sudha",
+	"URL" : "125-98",
+	"Tag" : "computer",
+	"Likes" : 9
+}
+{
+	"_id" : ObjectId("5b9361f6bfb45c334a0c548a"),
+	"Title" : "nosql review",
+	"Description" : "educational",
+	"By" : "Nair",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 10
+}
+{
+	"_id" : ObjectId("5b936210bfb45c334a0c548b"),
+	"Title" : "dbms",
+	"Description" : "educational",
+	"By" : "sudarshan",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 7
+}
+{
+	"_id" : ObjectId("5b936235bfb45c334a0c548c"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Forouzan",
+	"URL" : "156-98",
+	"Tag" : "computer",
+	"Likes" : 27
+}
+{
+	"_id" : ObjectId("5b9362d5bfb45c334a0c548d"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Tb",
+	"URL" : "136-98",
+	"Tag" : "computer",
+	"Likes" : 27,
+	"User_Name" : "Reena",
+	"Comments" : "Excellent"
+}
+-----------------------------------------------------------------------------------------------
+10. Delete the document titled 'nosql overview'.
+
+-----------------------------------------------------------------------------------------------
+
+> db.book.remove({Title:"nosql review"})
+WriteResult({ "nRemoved" : 1 })
+> db.book.find().pretty()
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+{
+	"_id" : ObjectId("5b936123bfb45c334a0c5486"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Silber",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 70
+}
+{
+	"_id" : ObjectId("5b936162bfb45c334a0c5487"),
+	"Title" : "java",
+	"Description" : "educational",
+	"By" : "Herbert",
+	"URL" : "195-98",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b936181bfb45c334a0c5488"),
+	"Title" : "c++",
+	"Description" : "educational",
+	"By" : "Varsha",
+	"URL" : "175-98",
+	"Tag" : "computer",
+	"Likes" : 19
+}
+{
+	"_id" : ObjectId("5b9361cbbfb45c334a0c5489"),
+	"Title" : "c",
+	"Description" : "educational",
+	"By" : "Sudha",
+	"URL" : "125-98",
+	"Tag" : "computer",
+	"Likes" : 9
+}
+{
+	"_id" : ObjectId("5b936210bfb45c334a0c548b"),
+	"Title" : "dbms",
+	"Description" : "educational",
+	"By" : "sudarshan",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 7
+}
+{
+	"_id" : ObjectId("5b936235bfb45c334a0c548c"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Forouzan",
+	"URL" : "156-98",
+	"Tag" : "computer",
+	"Likes" : 27
+}
+{
+	"_id" : ObjectId("5b9362d5bfb45c334a0c548d"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Tb",
+	"URL" : "136-98",
+	"Tag" : "computer",
+	"Likes" : 27,
+	"User_Name" : "Reena",
+	"Comments" : "Excellent"
+}
+------------------------------------------------------------------------------------------------
+11. Display exactly two documents written by 'john'.
+
+-----------------------------------------------------------------------------------------------
+> db.book.find({By:"John"}).limit(2)
+{ "_id" : ObjectId("5b9360dabfb45c334a0c5484"), "Title" : "mongodb overview", "Description" : "educational", "By" : "John", "URL" : "198-00", "Tag" : "computer", "Likes" : 100 }
+
+
+----------------------------------------------------------------------------------------------
+12. Display the second document published by 'john'
+
+-----------------------------------------------------------------------------------------------
+> db.book.find({By:"John"}).skip(1)
+> db.book.find({By:"John"}).skip(0)
+{ "_id" : ObjectId("5b9360dabfb45c334a0c5484"), "Title" : "mongodb overview", "Description" : "educational", "By" : "John", "URL" : "198-00", "Tag" : "computer", "Likes" : 100 }
+
+----------------------------------------------------------------------------------------------
+13. Display all the books in the sorted fashion.
+
+---------------------------------------------------------------------------------------------
+> db.book.aggregate([{$sort:{Title:1}}]).pretty()
+{
+	"_id" : ObjectId("5b936235bfb45c334a0c548c"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Forouzan",
+	"URL" : "156-98",
+	"Tag" : "computer",
+	"Likes" : 27             ..........SORTED BY THE ASCII VALUE OF TITLE IN ASCENDING=1
+}
+{
+	"_id" : ObjectId("5b9362d5bfb45c334a0c548d"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Tb",
+	"URL" : "136-98",
+	"Tag" : "computer",
+	"Likes" : 27,
+	"User_Name" : "Reena",
+	"Comments" : "Excellent"
+}
+{
+	"_id" : ObjectId("5b9361cbbfb45c334a0c5489"),
+	"Title" : "c",
+	"Description" : "educational",
+	"By" : "Sudha",
+	"URL" : "125-98",
+	"Tag" : "computer",
+	"Likes" : 9
+}
+{
+	"_id" : ObjectId("5b936181bfb45c334a0c5488"),
+	"Title" : "c++",
+	"Description" : "educational",
+	"By" : "Varsha",
+	"URL" : "175-98",
+	"Tag" : "computer",
+	"Likes" : 19
+}
+{
+	"_id" : ObjectId("5b936210bfb45c334a0c548b"),
+	"Title" : "dbms",
+	"Description" : "educational",
+	"By" : "sudarshan",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 7
+}
+{
+	"_id" : ObjectId("5b936162bfb45c334a0c5487"),
+	"Title" : "java",
+	"Description" : "educational",
+	"By" : "Herbert",
+	"URL" : "195-98",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+{
+	"_id" : ObjectId("5b936123bfb45c334a0c5486"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Silber",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 70
+}
+> db.book.aggregate([{$sort:{Likes:-1}}]).pretty().....SORTED BY  NO. OF LIKES IN DESCENDING =-1
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b936162bfb45c334a0c5487"),
+	"Title" : "java",
+	"Description" : "educational",
+	"By" : "Herbert",
+	"URL" : "195-98",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b936123bfb45c334a0c5486"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Silber",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 70
+}
+{
+	"_id" : ObjectId("5b936235bfb45c334a0c548c"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Forouzan",
+	"URL" : "156-98",
+	"Tag" : "computer",
+	"Likes" : 27
+}
+{
+	"_id" : ObjectId("5b9362d5bfb45c334a0c548d"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Tb",
+	"URL" : "136-98",
+	"Tag" : "computer",
+	"Likes" : 27,
+	"User_Name" : "Reena",
+	"Comments" : "Excellent"
+}
+{
+	"_id" : ObjectId("5b936181bfb45c334a0c5488"),
+	"Title" : "c++",
+	"Description" : "educational",
+	"By" : "Varsha",
+	"URL" : "175-98",
+	"Tag" : "computer",
+	"Likes" : 19
+}
+{
+	"_id" : ObjectId("5b9361cbbfb45c334a0c5489"),
+	"Title" : "c",
+	"Description" : "educational",
+	"By" : "Sudha",
+	"URL" : "125-98",
+	"Tag" : "computer",
+	"Likes" : 9
+}
+{
+	"_id" : ObjectId("5b936210bfb45c334a0c548b"),
+	"Title" : "dbms",
+	"Description" : "educational",
+	"By" : "sudarshan",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 7
+}
+> db.book.aggregate([{$sort:{Likes:1}}]).pretty().....SORTED BY  NO. OF LIKES IN ASCENDING =1
+{
+	"_id" : ObjectId("5b936210bfb45c334a0c548b"),
+	"Title" : "dbms",
+	"Description" : "educational",
+	"By" : "sudarshan",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 7
+}
+{
+	"_id" : ObjectId("5b9361cbbfb45c334a0c5489"),
+	"Title" : "c",
+	"Description" : "educational",
+	"By" : "Sudha",
+	"URL" : "125-98",
+	"Tag" : "computer",
+	"Likes" : 9
+}
+{
+	"_id" : ObjectId("5b936181bfb45c334a0c5488"),
+	"Title" : "c++",
+	"Description" : "educational",
+	"By" : "Varsha",
+	"URL" : "175-98",
+	"Tag" : "computer",
+	"Likes" : 19
+}
+{
+	"_id" : ObjectId("5b936235bfb45c334a0c548c"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Forouzan",
+	"URL" : "156-98",
+	"Tag" : "computer",
+	"Likes" : 27
+}
+{
+	"_id" : ObjectId("5b9362d5bfb45c334a0c548d"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Tb",
+	"URL" : "136-98",
+	"Tag" : "computer",
+	"Likes" : 27,
+	"User_Name" : "Reena",
+	"Comments" : "Excellent"
+}
+{
+	"_id" : ObjectId("5b936123bfb45c334a0c5486"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Silber",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 70
+}
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b936162bfb45c334a0c5487"),
+	"Title" : "java",
+	"Description" : "educational",
+	"By" : "Herbert",
+	"URL" : "195-98",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+
+---------------------------------------------------------------------------------------------
+14. Insert a document using save method.
+
+---------------------------------------------------------------------------------------------
+> db.book.save({Title:"CNN",Description:"educational",By:"Tb",URL:"136-98",Tag:"computer",Likes:27,
+User_Name:"Reena",Comments:"Excellent"})
+WriteResult({ "nInserted" : 1 })
+> db.book.find().pretty()
+{
+	"_id" : ObjectId("5b9360dabfb45c334a0c5484"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "John",
+	"URL" : "198-00",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b9360f0bfb45c334a0c5485"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Korth",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 900
+}
+{
+	"_id" : ObjectId("5b936123bfb45c334a0c5486"),
+	"Title" : "mongodb overview",
+	"Description" : "educational",
+	"By" : "Silber",
+	"URL" : "198-98",
+	"Tag" : "computer",
+	"Likes" : 70
+}
+{
+	"_id" : ObjectId("5b936162bfb45c334a0c5487"),
+	"Title" : "java",
+	"Description" : "educational",
+	"By" : "Herbert",
+	"URL" : "195-98",
+	"Tag" : "computer",
+	"Likes" : 100
+}
+{
+	"_id" : ObjectId("5b936181bfb45c334a0c5488"),
+	"Title" : "c++",
+	"Description" : "educational",
+	"By" : "Varsha",
+	"URL" : "175-98",
+	"Tag" : "computer",
+	"Likes" : 19
+}
+{
+	"_id" : ObjectId("5b9361cbbfb45c334a0c5489"),
+	"Title" : "c",
+	"Description" : "educational",
+	"By" : "Sudha",
+	"URL" : "125-98",
+	"Tag" : "computer",
+	"Likes" : 9
+}
+{
+	"_id" : ObjectId("5b936210bfb45c334a0c548b"),
+	"Title" : "dbms",
+	"Description" : "educational",
+	"By" : "sudarshan",
+	"URL" : "155-98",
+	"Tag" : "computer",
+	"Likes" : 7
+}
+{
+	"_id" : ObjectId("5b936235bfb45c334a0c548c"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Forouzan",
+	"URL" : "156-98",
+	"Tag" : "computer",
+	"Likes" : 27
+}
+{
+	"_id" : ObjectId("5b9362d5bfb45c334a0c548d"),
+	"Title" : "CN",
+	"Description" : "educational",
+	"By" : "Tb",
+	"URL" : "136-98",
+	"Tag" : "computer",
+	"Likes" : 27,
+	"User_Name" : "Reena",
+	"Comments" : "Excellent"
+}
+{
+	"_id" : ObjectId("5b936a9bbfb45c334a0c548e"),
+	"Title" : "CNN",
+	"Description" : "educational",
+	"By" : "Tb",
+	"URL" : "136-98",
+	"Tag" : "computer",
+	"Likes" : 27,
+	"User_Name" : "Reena",
+	"Comments" : "Excellent"
+}
+> 
+===============================================================================================

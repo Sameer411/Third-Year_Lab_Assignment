@@ -1,0 +1,88 @@
+NAME     : DHARA HARISH KOTAK
+CLASS    : TE(A)
+ROLL NO. : 38
+SUBJECT  : Database Management System Lab.
+	Assignment no:9
+---------------------------------------------------------------------------------------------
+Create a Library database with the following  schema
+Books(AccNo,Title,Author,Publisher,Count).
+
+Create a table Library_Audit with same fiels as of Books.
+a. Create a before trigger to insert records into Librry_Audit table if there is deletion in Books table.
+b. Create a after trigger to insert records into Librry_Audit table if there is updation in Books table.
+
+Software Required: Ubuntu,Postgres.
+
+============================================================================================
+create or replace function mmlibrary() returns trigger as
+$Library_audit$
+
+BEGIN
+	insert into libraryaudit values(old.accno,old.title);
+	return old;
+
+END;
+$Library_audit$
+language plpgsql;
+
+--------------------------------------------------------------------------------------
+create trigger lib_audit
+after delete on books
+for each row execute procedure
+mmlibrary();
+------------------------------------------------------------------------------------
+/*outputassignment=# create or replace function mmlibrary() returns trigger as
+assignment-# $Library_audit$
+assignment$# 
+assignment$# BEGIN
+assignment$# insert into libraryaudit values(old.accno,old.title);
+assignment$# return old;
+assignment$# 
+assignment$# END;
+assignment$# $Library_audit$
+assignment-# language plpgsql; 
+CREATE FUNCTION
+assignment=# create trigger lib_audit
+assignment-# after delete on books
+assignment-# for each row execute procedure
+assignment-# mmlibraray();
+ERROR:  function mmlibraray() does not exist
+assignment=# create trigger lib_audit
+assignment-# after delete on books
+assignment-# for each row execute procedure
+assignment-# mmlibrary();
+CREATE TRIGGER
+assignment=# select * from books;
+ accno | title 
+-------+-------
+   101 | dbms
+   102 | toc
+   103 | isee
+   104 | sepm
+   105 | dsa
+(5 rows)
+
+assignment=# delete from books where accno=1;
+DELETE 0
+assignment=# select * from libraryaudit;
+ accno | title 
+-------+-------
+(0 rows)
+
+assignment=# delete from books where accno=101;
+DELETE 1
+assignment=# select * from libraryaudit;
+ accno | title 
+-------+-------
+   101 | dbms
+(1 row)
+
+assignment=# delete from books where accno=103;
+DELETE 1
+assignment=# select * from libraryaudit;
+ accno | title 
+-------+-------
+   101 | dbms
+   103 | isee
+(2 rows)
+*/

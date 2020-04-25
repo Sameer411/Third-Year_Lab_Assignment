@@ -1,0 +1,122 @@
+
+
+Assignment: 7
+
+Title: Basic Operation on R
+
+1)Read data fron scan ()
+x=5
+x
+
+2)read data from user character data
+
+x=scan(what='charcter')
+x
+
+3)read csv file
+
+x=read.csv(file.choose())
+x
+
+4)viewing object using ls
+
+ls()
+[1] "a"     "count" "i"     "m"     "n"     "temp"  "vect"  "vtr"   "x"     "y"    
+> 
+
+
+7)Using repeat loop calculate even no
+no1=0
+repeat
+{
+ 
+  if ((no1 %% 2)==0)
+  {
+    
+    print(" No1 is even number")
+    
+  }
+  if(no1==11)
+  {
+  break()
+  }
+  
+  no1=no1+1
+}
+
+
+8)display 1 to 10 using repeat and while loop
+
+count = 0
+repeat 
+{
+  count = count + 1 
+  if(count==10)
+  {
+    break
+  }
+  print(count)
+}
+
+count=0
+while(count!=10)
+{
+  count = count + 1
+  print(count)
+}
+
+9) use for loop
+
+for(i in 1:10){
+  print("hello")
+}
+
+
+10)odd no
+
+x=3
+while(x%%2!=0)
+{
+  print("odd numbers:")
+  print(x)
+  break
+}
+
+
+11)even no
+
+x=4
+while(x%%2==0)
+{
+  print("even numbers:")
+  print(x)
+  break
+}
+
+12)print square of 1 to 25 
+for(i in 1:25){
+  i=i*i
+  print(i)
+}
+
+13)addition  and sub of two matrix:
+m<-matrix(c(1,2,3,4,5,6,7,8,9),3,3)
+n<-matrix(c(1,2,3,4,5,6,7,8,9),3,3)
+print("Addition of two matrix::")
+print(m+n)
+print("Substacrion of two matrix::")
+print(m-n)
+
+14)Identify mean,median of given vector
+8. Identify summary of given data.
+
+vect<-c(12,30,14)
+mean(vect)
+median(vect)
+var(vect)
+summary(vect)
+
+10.draw histogram of given vector (2,3,7,6,4,6,3,2,8,9,7,8,4) in five bins
+temp=c(2,3,7,6,4,6,3,2,8,9,7,8,4)
+hist(temp,col="red")
+
