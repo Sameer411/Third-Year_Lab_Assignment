@@ -1,0 +1,96 @@
+<html>
+<head>
+<title> student registration form  </title>
+<script src="jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#n1").click(function(){
+    $("#err1").hide(3);
+  })
+})
+
+$(document).ready(function(){
+  $("#n2").click(function(){
+    $("#err2").hide(10);
+  })
+})
+
+</script>
+
+<script>
+function check()
+{
+  var a=document.getElementById("n1").value;
+  var b=document.getElementById("n2").value;
+  var c=document.getElementById("n3").value;
+  var d=document.getElementById("n4").value;
+  var e=document.getElementById("n5").value;
+
+  if(a=="")
+  document.getElementById("err1").innerHTML="*Name field empty";
+  else
+  document.getElementById("err1").innerHTML="";
+
+  if(b=="")
+  document.getElementById("err2").innerHTML="*Email field empty";
+  else
+  document.getElementById("err2").innerHTML="";
+
+  if(c=="")
+  document.getElementById("err3").innerHTML="*Date field empty";
+  else
+  document.getElementById("err3").innerHTML="";
+
+  if(d=="")
+  document.getElementById("err4").innerHTML="*Contact no required";
+  else
+  document.getElementById("err4").innerHTML="";
+
+email();
+num();
+}
+</script>
+<script>
+function email()
+{
+    var em=document.getElementById("n2").value;
+    var atpos=em.indexOf("@");
+    var dotpos=em.indexOf(".",atpos+1);
+    if(atpos>=1 && dotpos>=1)
+    document.getElementById("err2").innerHTML="";
+    else
+    document.getElementById("err2").innerHTML="Enter valid email id";
+
+}
+
+</script>
+
+<style>
+h1{font-weight:bolder;font-style:italic;}
+</style>
+</head>
+<body>
+  <h1 align=center> K.K.WAGH.INSTITUTE OF ENGINEERING</H1>
+<form>
+  <table border=2 cellspacing=5 cellpadding=5 bordercolor="yellow" width=100% height=100%>
+  <tr><td>Name <input type=text size=25 name=sname placeholder="Enter your name" id=n1><span id=err1></span><br><br></tr></td>
+  <tr><td>Email <input type=emailid name=email id=n2><span id=err2></span><br><br></tr></td>
+  <tr><td>Birth Date <input type=date name=bdate id=n3><span id=err3></span><br><br></tr></td>
+  <tr><td>Contact no <input type=text maxlength="10" name=cono id=n4><span id=err4></span><br><br></td></tr>
+<tr><td>  Gender<br> <input type=radio name=male value="Male">Male<br>
+  <input type=radio name=male value="male">FeMale<br><br></tr></td>
+  <tr><td>Hobbies <br> <input type=checkbox name=sleep value="sleep" >Sleeping<br>
+  <input type=checkbox name=eat value="eat" id=n4>Eating<br>
+  <input type=checkbox name=play value="play" id=n4>Playing<br>
+  <input type=checkbox name=study value="study" id=n4>Studying<br><br></tr></td>
+  <tr><td>Batch<select name=batch id=n5>
+    <option> 2012 </option>
+    <option> 2013 </option>
+    <option> 2014 </option>
+    <option> 2015 </option>
+  </select><span id=err5></span><br><br></tr></td>
+  <tr><td><input type=button name=submit value="Submit" onclick="check()"></tr></td>
+
+</body>
+</head>

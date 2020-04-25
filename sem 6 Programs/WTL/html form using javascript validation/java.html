@@ -1,0 +1,81 @@
+<!doctype html>
+<head>
+	<title>Registration Form</title>
+	<link rel="stylesheet" href="stylesheet.css">
+
+</head>
+<body>
+
+<h3>Alumni Registration Form</h3>
+<form name="RegForm" method="post" action="display.html" onsubmit="return registration()">
+<table align="center" cellpadding="10">
+<tr>
+<td>Name</td>
+<td><input type="text" name="name" maxlength="30" id="n"/>
+<span id="nerr">
+</span>
+</td>
+</tr>
+
+<tr>
+<td>E-mail</td>
+<td><input type="text" name="email" maxlength="100" id="e"/>
+<span id="eerr">
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Contact</td>
+<td><input type="text" name="contact" maxlength="10" id="c"/>
+<span id="cerr">
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Address</td>
+<td><textarea type="text" rows="4" cols="30" name="address"  id="a"></textarea>
+<span id="aerr">
+</span>
+</td>
+</tr>
+
+<tr>
+<td>Gender</td>
+<td><input type="radio" name="gender" value="male" id="g"/>Male
+<input type="radio" name="gender" value="female" id="g"/>Female
+</td>
+</tr>
+
+<tr>
+<td>Date of Birth</td>
+<td><input type="date" name="dob" id="b" required/>
+<span id="berr">
+</span>
+</td>
+</tr>
+<tr><td>Batch<select name=batch id="ba">
+    <option value="2012"> 2012 </option>
+    <option value="2013"> 2013 </option>
+    <option value="2014"> 2014 </option>
+    <option value="2015"> 2015 </option>
+  </select><span id=barr></span></td></tr>
+
+<tr>
+<td>
+<input type="reset" value="Reset" id="res" class="btn1" />
+<input type="submit" value="Submit" id="sub" class="btn2"/>
+
+</td>
+</tr>
+
+<script src="java.js">
+      </script>
+
+
+
+</form>
+</table>
+</body>
+</html>
