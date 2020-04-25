@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type = "text/xsl" href="address.xsl"?>
+<?xml-stylesheet type = "text/css" href="address.css"?>
+
+<Address_Book>
+	<alumni id="1">
+	<name>Tanmay</name>
+	<email>tanmay@gmail.com</email>
+	<address>Pawannagar</address>
+	<contact>1234567890</contact>
+	</alumni>
+
+	
+	<alumni id="2">
+	<name>Aditi</name>
+	<email>aditi@gmail.com</email>
+	<address>Lekhanagar</address>
+	<contact>7896541230</contact>
+        </alumni>
+	
+
+	
+	<alumni id="3">
+	<name>Yash</name>
+	<email>yash@gmail.com</email>
+	<address>College Road</address>
+	<contact>7412589630</contact>
+	</alumni>
+
+	
+	<alumni id="4">
+	<name>Deepak</name>
+	<email>deepak@gmail.com</email>
+	<address>Mahatmanagar</address>
+	<contact>3698521470</contact>
+	</alumni>
+</Address_Book>	

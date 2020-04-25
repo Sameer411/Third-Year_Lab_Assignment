@@ -1,0 +1,20 @@
+Address_Book{
+	background-color: aliceblue;
+	text-align: ;
+	font-style: Times New Roman;
+	font-weight: normal;
+	
+}
+
+alumni{
+	font-size: 12pt;
+	color: tomato;
+  
+}
+
+id,name,address,email,contact{
+	display: block;
+	
+	
+}
+

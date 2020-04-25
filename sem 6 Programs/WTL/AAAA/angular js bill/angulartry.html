@@ -1,0 +1,99 @@
+<html ng-app="billpayApp";
+
+<head>
+<title>BILL PAYMENT RECORD USING ANGULAR JS</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<script src="angular.min.js"></script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap-theme.css">
+
+
+<script>
+var model = {
+	customer:"Student",
+
+	items:[{
+		bill:"Electricity",
+		amount:100,
+		status:false
+	},
+	{
+		bill:" Parking",
+		amount:100,
+		status:false
+	},
+	{
+		bill:"Maintenance",
+		amount:100,
+		status:false
+	},
+	{
+		bill:"Phone",
+		amount:100,
+		status:false
+	},
+	{
+		bill:"House Tax",
+		amount:100,
+		status:false
+	},
+
+	}]
+}
+var billpayApp=angular.module("billpayApp",[]);
+billpayApp.controller("billpayCtrl",function($scope)
+{
+	$scope.billpay=model;
+	$scope.dueBills=function()
+	{
+		var items=$scope.billpay.items;
+		var counter=0;
+		items.forEach((item) => 
+		{
+			if(!item=status)
+			{
+				counter++;
+			}
+		})
+		return counter;
+	}
+	$scope.total=function()
+	{
+		var items=$scope.billpay.items;
+		var counter=0;
+		items.forEach((item) => 
+		{
+			if(item=status)
+			{
+				counter+=parseInt(items.amount);
+			}
+		})
+		return counter;
+	}
+
+	$scope.redFlag=function()
+	{
+		return $scope.dueBills <=2 ? "label-success":"label-danger"
+	}
+	$scope.addBills=function(billname,amt){
+		obj={
+		bill:billname,
+		amount:amt,
+		status:False
+		}
+		$scope.billpay.items.push(obj);
+	}
+	$scope.removeBills=function(rmvBills)
+	{
+		$scope.billpay.items.splice($scope.billpay.items.IndexOf(rmvBills),1);
+	}
+});
+</script>
+</head>
+
+
+<!-----HT
+
+	
+

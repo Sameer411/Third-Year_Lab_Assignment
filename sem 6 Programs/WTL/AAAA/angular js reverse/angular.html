@@ -1,0 +1,38 @@
+<html>
+<script src="angular.min.js"></script>
+<body>
+<h3>Reversing of string</h3>
+<div ng-app="MyApp" ng-controller="MyController">
+<p>Enter some string: <input type="text" ng-model="s"/></p>
+<button ng-click="reverse_str()"> Click to reverse </button>
+<p> Reversed string is : {{result}} </p>
+</div>
+
+<script>
+	var App =angular.module("MyApp",[]);
+	App.factory('MyService',function(){
+		var factory={};
+	
+	factory.str_operation = function(str){
+		var r="";
+		for(var i=str.length-1;i>=0;i--)
+		r+=str[i];
+		return r;
+	}
+	return factory;
+});
+
+App.service('DisplayService',function(MyService){
+	this.reverse_str=function(str){
+	return MyService.str_operation(str);
+	}
+});
+
+App.controller('MyController',function($scope,DisplayService){
+$scope.reverse_str=function(){
+	$scope.result=DisplayService.reverse_str($scope.s);
+}
+});
+</script>
+</body>
+</html>
